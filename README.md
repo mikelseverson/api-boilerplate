@@ -1,0 +1,1 @@
+This project will serve as a boilerplate for my future node mongo and express API development. 
