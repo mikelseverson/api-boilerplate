@@ -1,15 +1,17 @@
 var express = require('express'),
 	mongoose = require('mongoose'),
-	bodyParser = require('body-parser'),
 	path = require('path');
 
 var router = require('./api/router'),
-	config = require('./config/config')
+	config = require('./config/config'),
+	middleware = require('./middleware/middleware')
 
-var app = express();
+var app = express()
 
-app.use(bodyParser.json());
+//Initializes global middleware for application
+middleware(app)
 
+//Routing
 app.use('/api', router);
 
 app.get('/', (req, res, next) => {
