@@ -3,7 +3,8 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	path = require('path');
 
-var router = require('./api/router');
+var router = require('./api/router'),
+	config = require('./config/config')
 
 var app = express();
 
@@ -17,10 +18,10 @@ app.get('/', (req, res, next) => {
 	next();
 });
 
-app.set('port', (process.env.PORT || 3000));
+app.set('port', config.port);
 
-app.listen(app.get("port"), () => {
-	console.log("Listening on port: " + app.get('port'));
+app.listen(config.port, () => {
+	console.log("Listening on port: " + config.port);
 })
 
 module.exports = app;

@@ -1,8 +1,7 @@
 var router = require('express').Router();
 
-router.get('/', (req, res, next) => {
-	console.log('hit /api/test');
-	res.send('greetings from /api/test');
-});
+var controller = require('./testController')
+
+router.get('/', controller.testRoute);
 
 module.exports = router;
