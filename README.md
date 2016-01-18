@@ -17,3 +17,9 @@ I've certainly have a lot to learn. I love programming, but I want to find what 
 1/13 - Project planning and progress through frontendmasters API course
 
 Project planning: First progress through frontendmasters and recreate the API making sure I fully understand how the components interact with each other. Then I'll create an API with mongoose db, authentication, unit testing, and a custom middleware, mixed in with techniques I learn at Prime Academy. I'll then recreate the API customized for my next project (not utilizing the boilerplate) to cement what I've learned.  
+
+1/14 - Today I implemented a config file to manage the port and manage authentication secrets. I also implemented the ability to use custom config files depending on the active process.node.NODE_ENV. This is defaulted to development, but has the ability to use different a custom config for other environments.
+
+1/18 - Over the past few days I have been researching https and letsencrypts role. What I've learned is many developers implement a reverse proxy web server by having NGINX or Apache manage the interaction between client and server. There seems to be some benefits in load balancing and could simplify ssl encryption. SSL encryption was intended to be implement in the boilerplate to make it easier to utilize push notifications. What I've found is push notifications work on localhost without ssl, heroku seems to support ssl by default on subdomain.heroku.com. 
+
+Push Notifications are going to be incredibly valuable in maintaining mobile engagement for web applications. For this reason I want to experiment using service workers. I hope it will be able to run on free heroku domains, otherwise I will be purchasing an ssl endpoint for mikelseverson.com.

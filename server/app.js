@@ -6,6 +6,7 @@ var router = require('./api/router'),
 	config = require('./config/config'),
 	middleware = require('./middleware/middleware')
 
+var lex = require('letsencrypt-express').testing();
 var app = express()
 
 //Initializes global middleware for application
