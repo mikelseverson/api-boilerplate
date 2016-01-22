@@ -9,6 +9,8 @@ var router = require('./api/router'),
 var lex = require('letsencrypt-express').testing();
 var app = express()
 
+require('mongoose').connect(config.db.url);
+
 //Initializes global middleware for application
 middleware(app)
 
@@ -17,7 +19,6 @@ app.use('/api', router);
 
 app.get('/', (req, res, next) => {
 	res.send('<body style="background:black"><h1 style="color:yellow">Constructing...</h1>');
-	next();
 });
 
 app.listen(config.port, () => {
