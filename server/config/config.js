@@ -5,6 +5,9 @@ var config = {
   test: 'testing',
   prod: 'production',
   port: process.env.PORT || 3000,
+  dist: { //This is probably unnecessary but will leave here until gulp is setup
+  	defaultFile: "/views/index.html"
+  },
   secrets: {
     jwt: process.env.JWT || 'secret'
   }
