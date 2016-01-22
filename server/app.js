@@ -11,7 +11,7 @@ var publicRouter = require('./public/router'),
 var app = express()
 
 //Database Setup
-var mongoDB = mongoose.connect(mongoURI).connection;
+var mongoDB = mongoose.connect(config.db.url).connection;
 mongoDB.on('error', function(err){
     if(err) console.log("MONGO ERROR: ", err);
 });
@@ -24,7 +24,6 @@ middleware(app)
 
 //Routing
 app.use('/api', apiRouter);
-
 app.use('/', publicRouter )
 
 app.listen(config.port, () => {
