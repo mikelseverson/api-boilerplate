@@ -2,24 +2,30 @@ var express = require('express'),
 	mongoose = require('mongoose'),
 	path = require('path');
 
-var router = require('./api/router'),
-	config = require('./config/config'),
+var config = require('./config/config'),
 	middleware = require('./middleware/middleware')
 
-var lex = require('letsencrypt-express').testing();
+var publicRouter = require('./public/router'),
+	apiRouter = require('./api/router')
+
 var app = express()
 
-require('mongoose').connect(config.db.url);
+//Database Setup
+var mongoDB = mongoose.connect(mongoURI).connection;
+mongoDB.on('error', function(err){
+    if(err) console.log("MONGO ERROR: ", err);
+});
+mongoDB.once('open', function(){
+    console.log("CONNECTED TO MONGODB!");
+});
 
 //Initializes global middleware for application
 middleware(app)
 
 //Routing
-app.use('/api', router);
+app.use('/api', apiRouter);
 
-app.get('/', (req, res, next) => {
-	res.send('<body style="background:black"><h1 style="color:yellow">Constructing...</h1>');
-});
+app.use('/', publicRouter )
 
 app.listen(config.port, () => {
 	console.log("Listening on port: " + config.port);
