@@ -25,3 +25,5 @@ Project planning: First progress through frontendmasters and recreate the API it
 Push Notifications are going to be incredibly valuable in maintaining mobile engagement for web applications. For this reason I want to experiment using service workers. I hope it will be able to run on free heroku domains, otherwise I will be purchasing an ssl endpoint for mikelseverson.com
 
 1/19 - Made small changes to make code more readable, and removed unnecessary parts. Tomorrow I would like to finish routing, implement route specific passport authentication. On the 21st I would like to implement Mongodb and practice working with presaves to store relevant information that would be helpful for projects used with this bootstraps. 
+
+1/21 - built out more structure for the project, added seperate config files based on the enviroment that merge with the global config file. Improved api test route controller setup example. Added a router for front end. Tomorrow would like to add authentication to the API routes for data, and setup gulp to manage moving clientside development to the distribution side of the boilerplate.
