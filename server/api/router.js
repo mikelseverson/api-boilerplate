@@ -4,7 +4,7 @@ var router = require('express').Router();
 // I would like any API request to require auth so I am hoping I can
 // throw an error when this point is accessed without auth
 
-
+//this will happen when there are requests to /api/*
 router.use((req, res, next) => {
 	console.log('hit');
 	next();
