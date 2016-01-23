@@ -22,7 +22,7 @@ gulp.task('content', () => {
 
 gulp.task('styles', () => {
 	gulp.src('./client/stylesheets/sass/**/*.scss')
-		.pipe(sass())
+		.pipe(sass().on('error', sass.logError))
 		.pipe(gulp.dest('./client/stylesheets/css'))
 		.pipe(minifyCSS())
 		.pipe(gulp.dest('./server/public/dist/stylesheets'))
