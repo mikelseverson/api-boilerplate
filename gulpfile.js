@@ -6,6 +6,13 @@ var concat = require('gulp-concat');
 var minifyCSS = require('gulp-minify-css');
 var replace = require('gulp-html-replace');
 var sourcemap = require('gulp-sourcemaps');
+var sass = require('gulp-sass');
+
+//webprefix
+//eslint
+//sublime linter
+//gulp-jasmine-phantom
+
 
 gulp.task('content', () => {
 	gulp.src('./client/index.html')
@@ -14,9 +21,11 @@ gulp.task('content', () => {
 });
 
 gulp.task('styles', () => {
-	gulp.src('./client/styles/*.css')
+	gulp.src('./client/stylesheets/sass/**/*.scss')
+		.pipe(sass())
+		.pipe(gulp.dest('./client/stylesheets/css'))
 		.pipe(minifyCSS())
-		.pipe(gulp.dest('./server/public/dist/styles'))
+		.pipe(gulp.dest('./server/public/dist/stylesheets'))
 		.pipe(reload({stream: true}));
 });
 
@@ -38,3 +47,9 @@ browserSync.init({
 	gulp.watch('./client/styles/*.css', ['styles']);
 	gulp.watch('./client/scripts/*.js', ['scripts']);	
 });
+
+gulp.task('default', () => {
+	gulp.watch('./client/*.html', ['content']);	
+	gulp.watch('./client/styles/*.css', ['styles']);
+	gulp.watch('./client/scripts/*.js', ['scripts']);	
+})
