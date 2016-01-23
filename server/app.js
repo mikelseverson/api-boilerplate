@@ -19,7 +19,7 @@ mongoDB.once('open', function(){
     console.log("CONNECTED TO MONGODB!");
 });
 
-//Initializes global middleware for application
+//global middleware for application
 middleware(app)
 
 //Routing
