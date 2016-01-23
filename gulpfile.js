@@ -7,12 +7,10 @@ var minifyCSS = require('gulp-minify-css');
 var replace = require('gulp-html-replace');
 var sourcemap = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
-
-//webprefix
+var autoprefixer = require('gulp-autoprefixer');
 //eslint
 //sublime linter
 //gulp-jasmine-phantom
-
 
 gulp.task('content', () => {
 	gulp.src('./client/index.html')
@@ -23,6 +21,9 @@ gulp.task('content', () => {
 gulp.task('styles', () => {
 	gulp.src('./client/stylesheets/sass/**/*.scss')
 		.pipe(sass().on('error', sass.logError))
+		.pipe(autoprefixer({
+			browsers: ['last 2 versions']
+		}))
 		.pipe(gulp.dest('./client/stylesheets/css'))
 		.pipe(minifyCSS())
 		.pipe(gulp.dest('./server/public/dist/stylesheets'))
@@ -44,12 +45,12 @@ browserSync.init({
 	proxy: "localhost:5000"
 })
 	gulp.watch('./client/*.html', ['content']);	
-	gulp.watch('./client/styles/*.css', ['styles']);
+	gulp.watch('./client/stylesheets/sass/**/*.scss', ['styles']);
 	gulp.watch('./client/scripts/*.js', ['scripts']);	
 });
 
 gulp.task('default', () => {
 	gulp.watch('./client/*.html', ['content']);	
-	gulp.watch('./client/styles/*.css', ['styles']);
+	gulp.watch('./client/stylesheets/sass/**/*.scss', ['styles']);
 	gulp.watch('./client/scripts/*.js', ['scripts']);	
 })
