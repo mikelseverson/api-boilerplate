@@ -22,8 +22,10 @@ gulp.task('styles', () => {
 
 gulp.task('scripts', () => {
 	gulp.src('./client/scripts/*.js')
-		.pipe(uglify())
-		.pipe(concat('app.js'))
+		.pipe(sourcemap.init())
+			.pipe(uglify())
+			.pipe(concat('app.js'))
+		.pipe(sourcemap.write())
 		.pipe(gulp.dest('./server/public/dist/scripts'))
 		.pipe(reload({stream: true}));
 });
