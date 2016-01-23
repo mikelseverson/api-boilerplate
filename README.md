@@ -2,7 +2,7 @@
 
 Let's get learning..
 
-This project will serve as a boilerplate for my future node mongo and express API development. The progress will be documented as I progress through the api development course available on frontendmasters.
+This project will serve as a boilerplate for my future node mongo and express API development for web apps. The progress will be documented as I progress through the api development course available on frontendmasters.
 
 Below I am going to keep a development journal for this project in order to write a summary of the project, learning process, struggles, and whatever else comes up as I develop it. 
 

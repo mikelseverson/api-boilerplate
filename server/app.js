@@ -24,7 +24,7 @@ middleware(app)
 
 //Routing
 app.use('/api', apiRouter);
-app.use('/', publicRouter )
+app.use('/', publicRouter);
 
 app.listen(config.port, () => {
 	console.log("Listening on port: " + config.port);
