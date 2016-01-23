@@ -24,7 +24,6 @@ gulp.task('styles', () => {
 		.pipe(autoprefixer({
 			browsers: ['last 2 versions']
 		}))
-		.pipe(gulp.dest('./client/stylesheets/css'))
 		.pipe(minifyCSS())
 		.pipe(gulp.dest('./server/public/dist/stylesheets'))
 		.pipe(reload({stream: true}));
