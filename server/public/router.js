@@ -6,12 +6,10 @@ var config = require('../config/config');
 
 
 //dist catch-all
-router.get("/*", function(req, res) {
+router.get("/*", (req, res) => {
     var file = req.params[0] || config.dist.defaultFile;
     res.sendFile(path.join(__dirname, "../public/dist", file), function(err) {
-    	if (err) {
-			res.status(404).send("I uh.. lost the page you wanted.");
-    	}
+    	if (err) res.status(404).send("I uh.. lost the page you wanted.");
     });
 });
 
